@@ -13,6 +13,18 @@
 		148272D31EBDDD9700C6D348 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148272D21EBDDD9700C6D348 /* Assets.xcassets */; };
 		148272D61EBDDD9700C6D348 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148272D41EBDDD9700C6D348 /* LaunchScreen.storyboard */; };
 		148272E11EBDDD9700C6D348 /* PinterestValleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148272E01EBDDD9700C6D348 /* PinterestValleyTests.swift */; };
+		148272F31EBDE05100C6D348 /* Pinterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148272F21EBDE05100C6D348 /* Pinterest.swift */; };
+		148272F61EBDE23E00C6D348 /* HTTPStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148272F51EBDE23E00C6D348 /* HTTPStore.swift */; };
+		148272F81EBDE25D00C6D348 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148272F71EBDE25D00C6D348 /* RequestHandler.swift */; };
+		148272FB1EBDE29F00C6D348 /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148272FA1EBDE29F00C6D348 /* URLS.swift */; };
+		148272FD1EBDED7F00C6D348 /* PinterestListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148272FC1EBDED7F00C6D348 /* PinterestListManager.swift */; };
+		148272FF1EBDEF2800C6D348 /* PinterestServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148272FE1EBDEF2800C6D348 /* PinterestServiceManager.swift */; };
+		148273011EBDEF6F00C6D348 /* PinterestPersistanceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148273001EBDEF6F00C6D348 /* PinterestPersistanceData.swift */; };
+		14957A441EC08E76005FBE99 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14957A431EC08E76005FBE99 /* HomeViewModel.swift */; };
+		14957A491EC2E0BA005FBE99 /* PinterestViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14957A471EC2E0BA005FBE99 /* PinterestViewCell.swift */; };
+		14957A4A1EC2E0BA005FBE99 /* PinterestViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14957A481EC2E0BA005FBE99 /* PinterestViewCell.xib */; };
+		14957A4C1EC2E177005FBE99 /* PinterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14957A4B1EC2E177005FBE99 /* PinterestViewController.swift */; };
+		14957A4E1EC4366B005FBE99 /* RoundCornerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14957A4D1EC4366B005FBE99 /* RoundCornerUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +48,18 @@
 		148272DC1EBDDD9700C6D348 /* PinterestValleyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinterestValleyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		148272E01EBDDD9700C6D348 /* PinterestValleyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestValleyTests.swift; sourceTree = "<group>"; };
 		148272E21EBDDD9700C6D348 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		148272F21EBDE05100C6D348 /* Pinterest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pinterest.swift; sourceTree = "<group>"; };
+		148272F51EBDE23E00C6D348 /* HTTPStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStore.swift; sourceTree = "<group>"; };
+		148272F71EBDE25D00C6D348 /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
+		148272FA1EBDE29F00C6D348 /* URLS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
+		148272FC1EBDED7F00C6D348 /* PinterestListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestListManager.swift; sourceTree = "<group>"; };
+		148272FE1EBDEF2800C6D348 /* PinterestServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestServiceManager.swift; sourceTree = "<group>"; };
+		148273001EBDEF6F00C6D348 /* PinterestPersistanceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestPersistanceData.swift; sourceTree = "<group>"; };
+		14957A431EC08E76005FBE99 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		14957A471EC2E0BA005FBE99 /* PinterestViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestViewCell.swift; sourceTree = "<group>"; };
+		14957A481EC2E0BA005FBE99 /* PinterestViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinterestViewCell.xib; sourceTree = "<group>"; };
+		14957A4B1EC2E177005FBE99 /* PinterestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestViewController.swift; sourceTree = "<group>"; };
+		14957A4D1EC4366B005FBE99 /* RoundCornerUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCornerUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +101,19 @@
 		148272CA1EBDDD9700C6D348 /* PinterestValley */ = {
 			isa = PBXGroup;
 			children = (
+				14957A421EC08E62005FBE99 /* ViewModels */,
+				148272F91EBDE28000C6D348 /* Constants */,
+				148272F41EBDE19F00C6D348 /* NetworkHandler */,
+				148272F11EBDDFE500C6D348 /* Models */,
+				148272EE1EBDDE3500C6D348 /* Views */,
+				148272EB1EBDDDF200C6D348 /* ViewController */,
 				148272CB1EBDDD9700C6D348 /* AppDelegate.swift */,
 				148272CD1EBDDD9700C6D348 /* ViewController.swift */,
 				148272CF1EBDDD9700C6D348 /* Main.storyboard */,
 				148272D21EBDDD9700C6D348 /* Assets.xcassets */,
 				148272D41EBDDD9700C6D348 /* LaunchScreen.storyboard */,
 				148272D71EBDDD9700C6D348 /* Info.plist */,
+				148272FE1EBDEF2800C6D348 /* PinterestServiceManager.swift */,
 			);
 			path = PinterestValley;
 			sourceTree = "<group>";
@@ -94,6 +125,59 @@
 				148272E21EBDDD9700C6D348 /* Info.plist */,
 			);
 			path = PinterestValleyTests;
+			sourceTree = "<group>";
+		};
+		148272EB1EBDDDF200C6D348 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14957A4B1EC2E177005FBE99 /* PinterestViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		148272EE1EBDDE3500C6D348 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				14957A471EC2E0BA005FBE99 /* PinterestViewCell.swift */,
+				14957A481EC2E0BA005FBE99 /* PinterestViewCell.xib */,
+				14957A4D1EC4366B005FBE99 /* RoundCornerUIView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		148272F11EBDDFE500C6D348 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				148272F21EBDE05100C6D348 /* Pinterest.swift */,
+				148273001EBDEF6F00C6D348 /* PinterestPersistanceData.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		148272F41EBDE19F00C6D348 /* NetworkHandler */ = {
+			isa = PBXGroup;
+			children = (
+				148272F51EBDE23E00C6D348 /* HTTPStore.swift */,
+				148272F71EBDE25D00C6D348 /* RequestHandler.swift */,
+				148272FC1EBDED7F00C6D348 /* PinterestListManager.swift */,
+			);
+			name = NetworkHandler;
+			sourceTree = "<group>";
+		};
+		148272F91EBDE28000C6D348 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				148272FA1EBDE29F00C6D348 /* URLS.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		14957A421EC08E62005FBE99 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				14957A431EC08E76005FBE99 /* HomeViewModel.swift */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +268,7 @@
 				148272D61EBDDD9700C6D348 /* LaunchScreen.storyboard in Resources */,
 				148272D31EBDDD9700C6D348 /* Assets.xcassets in Resources */,
 				148272D11EBDDD9700C6D348 /* Main.storyboard in Resources */,
+				14957A4A1EC2E0BA005FBE99 /* PinterestViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,8 +286,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148272F81EBDE25D00C6D348 /* RequestHandler.swift in Sources */,
+				14957A4C1EC2E177005FBE99 /* PinterestViewController.swift in Sources */,
+				148273011EBDEF6F00C6D348 /* PinterestPersistanceData.swift in Sources */,
+				148272FD1EBDED7F00C6D348 /* PinterestListManager.swift in Sources */,
+				148272FB1EBDE29F00C6D348 /* URLS.swift in Sources */,
+				14957A4E1EC4366B005FBE99 /* RoundCornerUIView.swift in Sources */,
 				148272CE1EBDDD9700C6D348 /* ViewController.swift in Sources */,
+				14957A441EC08E76005FBE99 /* HomeViewModel.swift in Sources */,
+				14957A491EC2E0BA005FBE99 /* PinterestViewCell.swift in Sources */,
 				148272CC1EBDDD9700C6D348 /* AppDelegate.swift in Sources */,
+				148272F31EBDE05100C6D348 /* Pinterest.swift in Sources */,
+				148272FF1EBDEF2800C6D348 /* PinterestServiceManager.swift in Sources */,
+				148272F61EBDE23E00C6D348 /* HTTPStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = A9Q5VPE9WX;
 				INFOPLIST_FILE = PinterestValley/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.manu.PinterestValley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -358,6 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = A9Q5VPE9WX;
 				INFOPLIST_FILE = PinterestValley/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.manu.PinterestValley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -414,6 +512,7 @@
 				148272E71EBDDD9700C6D348 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		148272E81EBDDD9700C6D348 /* Build configuration list for PBXNativeTarget "PinterestValleyTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +521,7 @@
 				148272EA1EBDDD9700C6D348 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class HomeViewModel: PinterestListManager {
+    
+    var isDataAvailable = false
+    
+    func isPinterestListPresent() -> Bool {
+        return isDataAvailable
+    }
+    
+    
+}
