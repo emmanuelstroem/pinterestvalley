@@ -103,6 +103,18 @@ class PinterestListManager: PinterestServiceManager {
                         pinterestItemUser.profileImage.large = userProfileImage["large"] as! String
                         
                         
+                        let avatarImageURL = URL(string: pinterestItemUser.profileImage.large)
+                        let avatarImageData = try? Data(contentsOf: avatarImageURL!)
+                        
+                        let avatarImage = UIImage(data: avatarImageData!)!
+                        
+                        // cache avatar image
+                        ImageCache.sharedCache.setObject(avatarImage, forKey: avatarImageURL! as AnyObject)
+                        
+                        pinterestItem.avatarLargeImage = UIImage(data: avatarImageData!)
+
+                        
+                        
                         // user_links
                         let userLinks = arrayItemUser["links"] as! NSDictionary
                         
@@ -119,6 +131,16 @@ class PinterestListManager: PinterestServiceManager {
                         pinterestItemUrl.regular = arrayItemUrl["regular"]!
                         pinterestItemUrl.small = arrayItemUrl["small"]!
                         pinterestItemUrl.thumb = arrayItemUrl["thumb"]!
+                        
+                        let coverImageURL = URL(string: pinterestItemUrl.small)
+                        let coverImageData = try? Data(contentsOf: coverImageURL!)
+                        let coverImage = UIImage(data: coverImageData!)!
+                        
+                        
+                        // cache cover image
+                        ImageCache.sharedCache.setObject(coverImage, forKey: coverImageURL! as AnyObject)
+                        
+                        pinterestItem.coverSmallImage = UIImage(data: coverImageData!)!
                         
                         
                         // Categories
@@ -214,36 +236,25 @@ class PinterestListManager: PinterestServiceManager {
         
     }
     
-    func getPinterestImage(imagePath: String, recievedImageBlock: @escaping (Data?, Bool) -> Void) {
-        var imageData: Data?
-        
-        requestHandler.getImage(imageURL: imagePath){
-            data, success in
-            
-            
-            if success {
-                
-                imageData = data
-                
-                print("got IMAGE")
-                
-                recievedImageBlock(imageData, true)
-            }
-            else {
-                recievedImageBlock(nil, false)
-            }
-        }
-        
-        recievedImageBlock(imageData, false)
-        
-    }
-    
-    
-    //: ### Now lets define a function to convert our array to NSData
-    
-    func archivePinterest(pinterestList: [Pinterest]) -> NSData {
-        let archivedPinterestObject = NSKeyedArchiver.archivedData(withRootObject: pinterestList as [Pinterest])
-        return archivedPinterestObject as NSData
-    }
+//    func getPinterestImage(imagePath: String, recievedImageBlock: @escaping (Data?, Bool) -> Void) {
+//
+//        DispatchQueue.global(qos: .userInitiated).async {
+//            
+//            self.requestHandler.getImage(imageURL: imagePath) {
+//                data, isSuccess in
+//                
+//                if isSuccess {
+//                    recievedImageBlock(data, isSuccess)
+//                }
+//                else {
+//                    recievedImageBlock(nil, isSuccess)
+//                }
+//                
+//                
+//            }
+//        }
+//        
+//    }
+
     
 }

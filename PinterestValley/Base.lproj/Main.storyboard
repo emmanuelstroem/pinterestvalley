@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="top" id="2oz-sQ-PxP"/>
                         <viewControllerLayoutGuide type="bottom" id="EQc-Vu-Klg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tz0-Q7-WZe" customClass="RoundCornerUIView" customModule="PinterestValley" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="tz0-Q7-WZe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

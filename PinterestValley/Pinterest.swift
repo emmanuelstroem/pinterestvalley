@@ -26,10 +26,10 @@ class Pinterest: NSObject {
     
     var link: Link = Link()
     
-    var urlFullImage: UIImage!
+    var coverSmallImage: UIImage!
     
+    var avatarLargeImage: UIImage!
     
-    var cover: Data!
     
 //    static let sharedInstance: Pinterest = {
 //        let instance = Pinterest()

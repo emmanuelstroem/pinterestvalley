@@ -18,12 +18,11 @@ class PinterestViewCell: UICollectionViewCell {
     
     @IBOutlet weak var idLabel: UILabel!
     
+    @IBOutlet weak var cellUIView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        print("awake from Nib Loaded . . . ")
         
     }
     
@@ -33,12 +32,35 @@ class PinterestViewCell: UICollectionViewCell {
             if let currentPinterest = pinterest {
                 nameLabel.text = currentPinterest.user.name
                 idLabel.text = currentPinterest.id
-                
-//            print("fullImage: \(currentPinterest.urls.full)")
+//                avatarImage.image = currentPinterest.avatarLargeImage
+//                coverImage.image = currentPinterest.coverSmallImage
                 
             }
         }
     }
-    
-
 }
+//
+//let imageCache = NSCache<AnyObject, AnyObject>()
+//
+//extension UIImageView {
+//    func loadImageUsingCacheWithUrl(urlString: String) {
+//        self.image = nil
+//        
+//        // check for cache
+//        if let cachedImage = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+//            self.image = cachedImage
+//            return
+//        }
+//        
+//        // download image from url
+//        let url = URL(string: urlString)
+//        let imageData = try? Data(contentsOf: url!)
+//        
+//        image = UIImage(data: imageData!)
+//        
+//        DispatchQueue.main.async(execute: { () -> Void in
+//            imageCache.setObject(downloadedImage, forKey: urlString as AnyObject)
+//            self.image = self.image
+//        })
+//    }
+//}

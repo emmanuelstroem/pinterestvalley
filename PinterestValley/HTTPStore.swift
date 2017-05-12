@@ -94,7 +94,7 @@ class HTTPStore {
                 if response != nil {
                     let response = response as! HTTPURLResponse
                     
-                    if response.statusCode >= 200 && response.statusCode < 400 {
+                    if response.statusCode >= 200 && response.statusCode <= 400 {
                         
                         // check for absence of data
                         if data != nil {
@@ -108,7 +108,7 @@ class HTTPStore {
                         }
                     }
                     else {
-                        print("HTTPStore: sendRequest() => response != 200")
+                        print("HTTPStore: sendRequest() => response != 200: CODE: \(response.statusCode)")
                     }
                     
                 }

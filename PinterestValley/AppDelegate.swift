@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    let requestHandler: RequestHandler = RequestHandler()
+//    let requestHandler: RequestHandler = RequestHandler()
     
     let sharedListManager = PinterestListManager()
 
@@ -25,6 +25,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             succes in
             
             print(self.sharedListManager.getPinterestList().count)
+            
+            
+//            for singlePinterest in self.sharedListManager.getPinterestList() {
+////                print(singlePinterest.likes)
+//                DispatchQueue.global(qos: .userInitiated).async {
+//                    
+//                    self.sharedListManager.getPinterestImage(imagePath: singlePinterest.urls.full){
+//                        data, isSuccess in
+//                        
+//                        if isSuccess {
+//                            singlePinterest.urlFullImage = UIImage(data: data!)
+//                            
+//                            print(data!)
+//                        }
+//                        else {
+//                            print("AppDelegate: image request failed")
+//                        }
+//                    }
+//                }
+//            }
         }
         
 //        print(PinterestListManager.pinterestListManager.getPinterestList().count)

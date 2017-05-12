@@ -9,12 +9,17 @@
 import UIKit
 
 class PinterestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    let imageCache = NSCache<AnyObject, AnyObject>()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
+    
+    
+    let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
     
     var pinterestData: [Pinterest]?
     
@@ -24,26 +29,40 @@ class PinterestViewController: UIViewController, UICollectionViewDelegate, UICol
     var pullToRefresh: UIRefreshControl!
     
     
+    // view loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Register Nib Custom Cell
         self.collectionView.register(UINib(nibName: "PinterestViewCell", bundle: nil), forCellWithReuseIdentifier: "photo")
         
-
-//        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        let when = DispatchTime.now() + 2 // wait time in seconds
-        
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            self.pinterestData = PinterestPersistanceData.sharedInstance.getPinterestList()
+        if PinterestPersistanceData.sharedInstance.getPinterestList().count != 0 {
+            print("reloading data . . ")
             self.collectionView.reloadData()
+        }
+//        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) {
+            print("6 seconds later")
+            //            self.collectionView.reloadData()
+            let pinterestCount = PinterestPersistanceData.sharedInstance.getPinterestList().count
+                
+            if pinterestCount > 0 {
+                print("reloading data . . ")
+                self.collectionView.reloadData()
+            }
             
         }
         
+    }
+    
+    // view will appear
+    override func viewWillAppear(_ animated: Bool) {
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            self.pinterestData = PinterestPersistanceData.sharedInstance.getPinterestList()
+            
+            
+        }
         
         //pull to refresh action
         self.pullToRefresh = UIRefreshControl()
@@ -61,20 +80,25 @@ class PinterestViewController: UIViewController, UICollectionViewDelegate, UICol
         
         // set view background
 //        view.backgroundColor = UIColor.darkGray
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "haha")!)
+        
         
         collectionView!.backgroundColor = UIColor.clear
-        collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
+//        collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
         
         self.collectionView?.alwaysBounceVertical = true
         
-        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("view appeared")
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     
     // MARK: UICollectionViewDataSource
@@ -83,33 +107,56 @@ class PinterestViewController: UIViewController, UICollectionViewDelegate, UICol
         return 1
     }
     
+    // number of items in collection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return PinterestPersistanceData.sharedInstance.getPinterestList().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myappscollection", for: indexPath)
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photo", for: indexPath) as! PinterestViewCell
         
-//        cell.backgroundColor = UIColor.red
-        
         let currentPinterest = PinterestPersistanceData.sharedInstance.getSinglePinterest(index: indexPath.item)
+        
+        let profileImageURL = URL(string: currentPinterest.user.profileImage.large)
+        let coverImageURL = URL(string: currentPinterest.urls.small)
+        
+        
+        // load cache profile image
+        if (ImageCache.sharedCache.object(forKey: profileImageURL! as AnyObject) != nil) {
+            let currentProfileImage = ImageCache.sharedCache.object(forKey: profileImageURL! as AnyObject) as! UIImage
+            
+            cell.avatarImage.image = currentProfileImage
+        }
+        
+        // load cache cover image
+        if (ImageCache.sharedCache.object(forKey: coverImageURL! as AnyObject) != nil) {
+            let currentCoverImage = ImageCache.sharedCache.object(forKey: coverImageURL! as AnyObject) as! UIImage
+            
+            cell.coverImage.image = currentCoverImage
+        }
         
         cell.pinterest = currentPinterest
         
-        self.requestHandler.getImage(imageURL: currentPinterest.urls.full){
-            data, success in
-            
-            print(success)
-        }
+        cell.avatarImage.layer.cornerRadius = cell.avatarImage.frame.size.width / 4
+        cell.coverImage.layer.cornerRadius = 15.0
         
-            print(currentPinterest.urls.full)
-      
-        cell.coverImage.image = UIImage(named: "haha")
-        
+        cell.cellUIView.layer.cornerRadius = 15.0
+
         return cell
+    }
+    
+    
+    // pinterest item selected
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("\(indexPath.item) selected")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            cell.alpha = 1
+        })
     }
     
     
@@ -118,14 +165,17 @@ class PinterestViewController: UIViewController, UICollectionViewDelegate, UICol
         
         print("pulled refreshing...")
         
+        DispatchQueue.main.async {
+            self.pinterestData = PinterestPersistanceData.sharedInstance.getPinterestList()
+            
+        }
+
         collectionView?.reloadData()
         
         self.pullToRefresh.endRefreshing()
         
-        
-        //        self.pullToRefresh.endRefreshing()
-        
     }
+    
     
     
 
@@ -139,5 +189,6 @@ class PinterestViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     */
     
+
 
 }

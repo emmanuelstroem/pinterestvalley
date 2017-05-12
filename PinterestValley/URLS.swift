@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Constants {
+class URLS {
     
     var apiURL: String  = "https://pastebin.com/raw/wgkJgazE"
     

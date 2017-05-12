@@ -10,9 +10,6 @@ import Foundation
 import UIKit
 
 class PinterestPersistanceData: NSObject {
-//    
-//    static let sharedPinterestData = PinterestPersistanceData()
-//    
     
     static let sharedInstance: PinterestPersistanceData = {
         let instance = PinterestPersistanceData()
@@ -44,10 +41,16 @@ class PinterestPersistanceData: NSObject {
                 requiredPinterestList.append(singlePinteresList)
             }
         }
-        else {
-            print("uniquePinterestList is EMPTY")
-        }
-        
+//        else {
+//            print("uniquePinterestList is EMPTY")
+//            
+//            PinterestListManager().getPinterests(){
+//                succes in
+//                
+//                print("making api call")
+//            }
+//        }
+//        
         return requiredPinterestList
     }
     

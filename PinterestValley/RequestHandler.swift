@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 class RequestHandler: HTTPStore {
     
-    let constants: Constants = Constants()
+    var constants: URLS?
     
     var pinterestsArray: [Pinterest]?
     
@@ -22,13 +23,16 @@ class RequestHandler: HTTPStore {
     // MARK: Array Response
     func getArray(finishBlock: @escaping (NSArray?, Bool) -> Void) {
         
-        self.sendRequest(url: constants.apiURL, requestBody: requestbody){
+        constants = URLS()
+        
+        self.sendRequest(url: (constants?.apiURL)!, requestBody: requestbody){
             data, error, isSuccess in
             
             if isSuccess {
                 print("HTTP Request was successful")
                 
                 if data != nil {
+                    
                     let arrayData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
                     
                     finishBlock(arrayData, true)
@@ -47,22 +51,28 @@ class RequestHandler: HTTPStore {
     
     //MARK: Data Reponse
     func getImage(imageURL: String, finishImageBlock: @escaping (Data?, Bool) -> Void) {
-        self.sendRequest(url: imageURL, requestBody: requestbody){
+        var imageUIImage: Data?
+        
+        self.sendRequest(url: imageURL, requestBody: self.requestbody){
             data, error, isSuccess in
             
-            print("getImage() : ImageURL: \(imageURL)")
-            
-            if isSuccess{
-                print("HTTP image request successful")
+            if isSuccess {
+                print("Image Request was successful")
                 
                 if data != nil {
-                    finishImageBlock(data, true)
+                    //                    let imageData = UIImage(data: data!)
+                    
+                    imageUIImage = data
+                    
+                    finishImageBlock(imageUIImage, true)
                 }
+                    
                 else {
                     finishImageBlock(nil, false)
                 }
             }
             else {
+                print("no image recieved")
                 finishImageBlock(nil, false)
             }
         }
@@ -70,7 +80,7 @@ class RequestHandler: HTTPStore {
     
     // MARK: JSON Response
     func getJson(finishBlock: @escaping (NSDictionary?, Bool) -> Void) {
-        self.sendRequest(url: constants.jsonApiUrl, requestBody: requestbody){
+        self.sendRequest(url: (constants?.jsonApiUrl)!, requestBody: requestbody){
             (data, error, isSuccess) in
             
             if isSuccess {
